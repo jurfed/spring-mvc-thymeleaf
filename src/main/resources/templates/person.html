@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Selected person</title>
+
+</head>
+<body>
+<h1>Selected person:</h1>
+
+<table class="persons">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+        <td th:text="${person.id}">1</td>
+        <td th:text="${person.name}">John Doe</td>
+    </tbody>
+</table>
+</body>
+</html>

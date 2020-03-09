@@ -26,11 +26,18 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="person : ${persons}">
-        <td th:text="${person.id}">1</td>
-        <td th:text="${person.name}">John Doe</td>
+    <tr th:each="currentPerson : ${persons}">
+
+<!--        <td th:text="${person.id}">1</td>-->
+<!--        <td th:text="${person.name}">John Doe</td>-->
+
+        <div th:object="${currentPerson}">
+            <td th:text="*{id}">1</td>
+            <td th:text="*{name}">John Doe</td>
+        </div>
+
         <td>
-            <a th:href="@{/edit(id=${person.id})}" href="edit.html">Edit</a>
+            <a th:href="@{/edit(id=${currentPerson.id})}" href="edit.html">Edit</a>
         </td>
     </tr>
     </tbody>

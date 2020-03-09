@@ -10,6 +10,7 @@ import ru.otus.spring.domain.Person;
 import ru.otus.spring.repostory.PersonRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Controller
@@ -27,6 +28,17 @@ public class PersonController {
         List<Person> persons = repository.findAll();
         model.addAttribute("persons", persons);
         return "list";
+    }
+
+    @RequestMapping(
+            value = "/personId",
+            method = RequestMethod.GET
+    )
+    public String get(@RequestParam(value = "id") int id, Model model){
+        Optional<Person> person = repository.findById(id);
+        model.addAttribute("person", person.get());
+
+        return "person";
     }
 
     @GetMapping("/edit")
