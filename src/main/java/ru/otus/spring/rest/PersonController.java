@@ -26,7 +26,7 @@ public class PersonController {
     @GetMapping("/")
     public String listPage(Model model) {
         List<Person> persons = repository.findAll();
-        model.addAttribute("persons", persons);
+        model.addAttribute("personList", persons);
         return "list";
     }
 
@@ -52,7 +52,7 @@ public class PersonController {
     public String savePerson(@ModelAttribute Person person, Model model) {
         repository.save(person);
         List<Person> persons = repository.findAll();
-        model.addAttribute("persons", persons);
+        model.addAttribute("personList", persons);
         return "list";
     }
 
