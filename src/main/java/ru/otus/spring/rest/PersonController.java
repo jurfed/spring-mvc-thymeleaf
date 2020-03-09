@@ -34,10 +34,9 @@ public class PersonController {
             value = "/personId",
             method = RequestMethod.GET
     )
-    public String get(@RequestParam(value = "id") int id, Model model){
+    public String get(@RequestParam(value = "id") int id, Model model) {
         Optional<Person> person = repository.findById(id);
         model.addAttribute("person", person.get());
-
         return "person";
     }
 
