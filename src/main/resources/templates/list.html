@@ -26,7 +26,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="currentPerson : ${personList}">
+    <tr th:each="currentPerson : ${myPersonList}">
 
 <!--        <td th:text="${person.id}">1</td>-->
 <!--        <td th:text="${person.name}">John Doe</td>-->
@@ -37,7 +37,7 @@
         </div>
 
         <td>
-            <a th:href="@{/edit(id=${currentPerson.id})}" href="edit.html">Edit</a>
+            <a th:href="@{/edit(id=${currentPerson.id})}">Edit</a>
         </td>
     </tr>
     </tbody>

@@ -7,7 +7,7 @@
 <body>
 
 <!-- Person edition -->
-<form id="edit-form" th:action="@{/edit(id=${person.id})}" th:method="post" action="edit.html">
+<form id="edit-form" th:action="@{/saveEditedPerson(id=${person.id})}" th:method="post">
     <h1>Person Info:</h1>
 
     <div class="row">

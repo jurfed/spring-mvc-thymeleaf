@@ -23,7 +23,7 @@ public class PersonController {
     @GetMapping("/")
     public String listPage(Model model) {
         List<Person> persons = repository.findAll();
-        model.addAttribute("personList", persons);
+        model.addAttribute("myPersonList", persons);
         return "list";
     }
 
@@ -34,16 +34,16 @@ public class PersonController {
         return "edit";
     }
 
-    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    @RequestMapping(value = "/saveEditedPerson", method = RequestMethod.POST)
     public String savePerson(@ModelAttribute Person person, Model model) {
         repository.save(person);
         List<Person> persons = repository.findAll();
-        model.addAttribute("personList", persons);
+        model.addAttribute("myPersonList", persons);
         return "list";
     }
 
     /**
-     *
+     *ttp://localhost:8080/personId?id=1
      * @param id
      * @param model
      * @return
@@ -55,7 +55,7 @@ public class PersonController {
     public String get(@RequestParam(value = "id") int id, Model model) {
         Optional<Person> person = repository.findById(id);
         model.addAttribute("person", person.get());
-        return "person";
+        return "myPerson";
     }
 
 }
